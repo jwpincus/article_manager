@@ -1,9 +1,12 @@
 const AllUsers = (props) => {
   const users = props.users.map( user => {
+    let selected = (props.selectedUsers.indexOf(user.id) > -1) ? true : false;
     return (
         <User
           key={user.id}
-          name={user.name} />
+          user={user}
+          handleUserClick={props.handleUserClick}
+          selected={selected} />
     )
   })
 
@@ -20,6 +23,7 @@ const AllUsers = (props) => {
   return (
     <div style={styles}>
       <h2>Users:</h2>
+      {props.children}
       {users}
     </div>
   )

@@ -99,15 +99,16 @@ class Main extends React.Component  {
     return (
       <div>
         <h1>Article Manager</h1>
-        <AllUsers
-          users={this.state.users} />
         <AllArticles
           articles={this.state.articles}
           delete={this.handleArticleDelete}
           update={this.handleArticleUpdate}
           duplicate={this.handleArticleDuplicate} />
         <NewArticle
-          submit={this.handleArticleSubmit}/>
+          submit={this.handleArticleSubmit} />
+        <ArticleSender
+          articles={this.state.articles}
+          users={this.state.users} />
       </div>
     )
   }

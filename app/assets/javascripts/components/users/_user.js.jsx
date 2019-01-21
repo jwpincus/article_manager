@@ -6,12 +6,22 @@ const User = (props) => {
     display: 'inline-block',
     boxSizing: 'border-box',
     padding: '0 8px',
-    textAlign: 'center'
+    textAlign: 'center',
+    cursor: 'pointer'
+  }
+
+  if (props.selected) {
+    styles = {
+      ...styles,
+      border: '2px solid blue'
+    }
   }
 
   return (
-    <div style={styles}>
-      {props.name}
+    <div
+      style={styles}
+      onClick={() => props.handleUserClick(props.user.id)}>
+      {props.user.name}
     </div>
   )
 }
