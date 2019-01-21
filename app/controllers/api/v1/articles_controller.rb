@@ -5,7 +5,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def create
-    fruit = Article.create(fruit_params)
+    article = Article.create(article_params)
     render json: article
   end
 

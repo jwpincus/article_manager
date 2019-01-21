@@ -3,7 +3,9 @@ const AllArticles = (props) => {
     return (
         <Article
           key={article.id}
-          article={article} />
+          id={article.id}
+          article={article}
+          delete={props.delete} />
     )
   })
 

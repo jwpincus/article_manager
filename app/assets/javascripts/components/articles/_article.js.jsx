@@ -13,6 +13,7 @@ const Article = (props) => {
     <div style={styles}>
       <h2>{props.article.title}</h2>
       <p>{props.article.body}</p>
+      <button onClick={() => props.delete(props.id)}>Delete Article</button>
     </div>
   )
 }

@@ -5,6 +5,8 @@ class Main extends React.Component  {
       users: [],
       articles: []
     };
+    this.handleArticleSubmit = this.handleArticleSubmit.bind(this);
+    this.handleArticleDelete = this.handleArticleDelete.bind(this);
   }
 
   componentDidMount () {
@@ -24,6 +26,42 @@ class Main extends React.Component  {
       .then( json => {this.setState({articles: json})});
   }
 
+  handleArticleDelete (id) {
+    fetch(`/api/v1/articles/${id}`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((_) => this.deleteArticle(id) )
+  }
+
+  deleteArticle (id) {
+    let newArticles = this.state.articles.filter( article => article.id !== id)
+    this.setState({articles: newArticles})
+  }
+
+  handleArticleSubmit (title, articleBody) {
+    let body = JSON.stringify({article: {title: title, body: articleBody}});
+
+    fetch('/api/v1/articles',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: body
+    })
+    .then( response => response.json())
+    .then( article => this.appendArticle(article))
+  }
+
+  appendArticle (article) {
+    let newArticles = [...this.state.articles]
+    newArticles.push(article)
+    this.setState({articles: newArticles})
+  }
+
   render () {
     return (
       <div>
@@ -31,7 +69,10 @@ class Main extends React.Component  {
         <AllUsers
           users={this.state.users} />
         <AllArticles
-          articles={this.state.articles} />
+          articles={this.state.articles}
+          delete={this.handleArticleDelete} />
+        <NewArticle
+          submit={this.handleArticleSubmit}/>
       </div>
     )
   }
