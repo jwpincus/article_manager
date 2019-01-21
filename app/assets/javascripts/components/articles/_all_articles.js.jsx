@@ -5,7 +5,8 @@ const AllArticles = (props) => {
           key={article.id}
           article={article}
           delete={props.delete}
-          update={props.update} />
+          update={props.update}
+          duplicate={props.duplicate} />
     )
   })
 

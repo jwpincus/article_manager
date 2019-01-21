@@ -49,6 +49,7 @@ class Article extends React.Component {
         {body}
         <button onClick={() => this.handleEdit()}>{this.state.editable ? 'Submit' : 'Edit'}</button>
         <button onClick={() => this.props.delete(this.props.article.id)}>Delete Article</button>
+        <button onClick={() => this.props.duplicate(this.props.article.title + ' DUPLICATE', this.props.article.body)}>Duplicate</button>
       </div>
     )
   }

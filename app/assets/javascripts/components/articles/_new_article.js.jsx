@@ -26,7 +26,8 @@ const NewArticle = (props) => {
         <br/>
         <textarea
           ref={value => form.body = value}
-          placeholder='Enter the body here' />
+          placeholder='Enter the body here'
+          />
         <br/>
         <button>Save</button>
       </form>

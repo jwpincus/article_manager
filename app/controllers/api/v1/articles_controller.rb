@@ -1,7 +1,7 @@
 class Api::V1::ArticlesController < ApplicationController
 
   def index
-    render json: Article.all
+    render json: Article.all.order(:created_at)
   end
 
   def create

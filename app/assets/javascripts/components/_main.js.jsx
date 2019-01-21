@@ -8,6 +8,7 @@ class Main extends React.Component  {
     this.handleArticleSubmit = this.handleArticleSubmit.bind(this);
     this.handleArticleDelete = this.handleArticleDelete.bind(this);
     this.handleArticleUpdate = this.handleArticleUpdate.bind(this);
+    this.handleArticleDuplicate = this.handleArticleDuplicate.bind(this);
   }
 
   componentDidMount () {
@@ -89,6 +90,11 @@ class Main extends React.Component  {
     this.setState({articles: newArticles})
   }
 
+  handleArticleDuplicate (title, body) {
+    // this seems silly, but is setup to easily handle alternative ways of duplicating rather than creating new on the server side
+    this.handleArticleSubmit(title, body)
+  }
+
   render () {
     return (
       <div>
@@ -98,7 +104,8 @@ class Main extends React.Component  {
         <AllArticles
           articles={this.state.articles}
           delete={this.handleArticleDelete}
-          update={this.handleArticleUpdate} />
+          update={this.handleArticleUpdate}
+          duplicate={this.handleArticleDuplicate} />
         <NewArticle
           submit={this.handleArticleSubmit}/>
       </div>
