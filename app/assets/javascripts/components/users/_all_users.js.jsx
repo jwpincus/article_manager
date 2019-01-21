@@ -10,8 +10,12 @@ const AllUsers = (props) => {
   let styles = {
     width: '100%',
     border: '3px solid black',
-    borderRadius: '5px'
+    borderRadius: '5px',
+    margin: '16px 0',
+    padding: '8px 8px',
+    boxSizing: 'border-box'
   }
+
 
   return (
     <div style={styles}>
