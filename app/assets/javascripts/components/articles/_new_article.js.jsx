@@ -12,19 +12,24 @@ const NewArticle = (props) => {
   }
 
   return(
-    <form
-      style={styles}
-      onSubmit={ e => {
-        e.preventDefault();
-        props.submit(form.title.value, form.body.value); e.target.reset();
-      }}>
-      <input
-        ref={value => form.title = value}
-        placeholder='Enter the title of the article'/><br/>
-      <textarea
-         ref={value => form.body = value}
-         placeholder='Enter the body here' /><br/>
-       <button>Submit</button>
-    </form>
+    <div style={styles}>
+      <h2>Create a New Article</h2>
+      <form
+        onSubmit={ e => {
+          e.preventDefault();
+          props.submit(form.title.value, form.body.value); e.target.reset();
+        }}>
+        <input
+          ref={value => form.title = value}
+          placeholder='Enter the title of the article'
+          />
+        <br/>
+        <textarea
+          ref={value => form.body = value}
+          placeholder='Enter the body here' />
+        <br/>
+        <button>Save</button>
+      </form>
+    </div>
   )
 }

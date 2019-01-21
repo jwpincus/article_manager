@@ -7,6 +7,7 @@ class Main extends React.Component  {
     };
     this.handleArticleSubmit = this.handleArticleSubmit.bind(this);
     this.handleArticleDelete = this.handleArticleDelete.bind(this);
+    this.handleArticleUpdate = this.handleArticleUpdate.bind(this);
   }
 
   componentDidMount () {
@@ -24,6 +25,32 @@ class Main extends React.Component  {
     fetch('/api/v1/articles.json')
       .then( response => {return response.json()})
       .then( json => {this.setState({articles: json})});
+  }
+
+  handleArticleUpdate (article) {
+    fetch(`/api/v1/articles/${article.id}`,
+    {
+      method: 'PUT',
+      body: JSON.stringify({article: article}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => {
+        this.updateArticle(article)
+      })
+  }
+
+  updateArticle (article) {
+    let newArticles = this.state.articles.map( a => {
+      if (a.id === article.id) {
+        return article
+      } else {
+        return a
+      }
+    })
+    this.setState({
+      articles: newArticles
+    })
   }
 
   handleArticleDelete (id) {
@@ -70,7 +97,8 @@ class Main extends React.Component  {
           users={this.state.users} />
         <AllArticles
           articles={this.state.articles}
-          delete={this.handleArticleDelete} />
+          delete={this.handleArticleDelete}
+          update={this.handleArticleUpdate} />
         <NewArticle
           submit={this.handleArticleSubmit}/>
       </div>
