@@ -1,0 +1,7 @@
+<h2>Hi <%= @user.name %>,</h2>
+<p>The experts at Noom have personally recommended an article for you!</p>
+
+<p>You can read it by clicking <%= link_to articles_url(@article, email: @user.email) %></p>
+
+<p>Thanks,</p>
+<p>Your Noom Coaches</p>

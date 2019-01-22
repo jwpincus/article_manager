@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :articles, only: [:show]
+
   root to: 'home#index'
 end
