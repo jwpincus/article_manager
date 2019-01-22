@@ -47,6 +47,7 @@ class ArticleSender extends React.Component {
         ...initialState
       })
     })
+    console.log(body)
   }
 
   render () {
