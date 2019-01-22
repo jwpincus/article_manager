@@ -8,7 +8,7 @@ const User = (props) => {
     padding: '0 8px',
     textAlign: 'center',
     cursor: 'pointer'
-  }
+  };
 
   if (props.selected) {
     styles = {

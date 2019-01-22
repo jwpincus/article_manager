@@ -1,6 +1,6 @@
 const NewArticle = (props) => {
 
-  let form = {}
+  let form = {};
 
   let styles = {
     width: '100%',
@@ -9,7 +9,7 @@ const NewArticle = (props) => {
     margin: '16px 0',
     padding: '8px 8px',
     boxSizing: 'border-box'
-  }
+  };
 
   return(
     <div style={styles}>

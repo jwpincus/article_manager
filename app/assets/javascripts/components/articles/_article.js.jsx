@@ -4,7 +4,7 @@ class Article extends React.Component {
     super(props);
     this.state = {
       editable: false
-    }
+    };
   }
 
   handleEdit () {

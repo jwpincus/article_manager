@@ -8,7 +8,7 @@ const AllArticles = (props) => {
           update={props.update}
           duplicate={props.duplicate} />
     )
-  })
+  });
 
   let styles = {
     width: '100%',

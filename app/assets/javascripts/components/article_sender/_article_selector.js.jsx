@@ -7,7 +7,7 @@ const ArticleSelector = (props) => {
     margin: '16px 0',
     padding: '8px 8px',
     boxSizing: 'border-box'
-  }
+  };
 
 
   const articles = props.articles.map( a => {
@@ -20,7 +20,7 @@ const ArticleSelector = (props) => {
       padding: '0 8px',
       textAlign: 'center',
       cursor: 'pointer'
-    }
+    };
 
     if (a.id === props.selectedArticle) {
       articleStyle = {...articleStyle, border: '2px solid blue' }

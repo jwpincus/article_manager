@@ -8,7 +8,7 @@ const AllUsers = (props) => {
           handleUserClick={props.handleUserClick}
           selected={selected} />
     )
-  })
+  });
 
   let styles = {
     width: '100%',
@@ -17,7 +17,7 @@ const AllUsers = (props) => {
     margin: '16px 0',
     padding: '8px 8px',
     boxSizing: 'border-box'
-  }
+  };
 
 
   return (

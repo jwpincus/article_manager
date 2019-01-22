@@ -13,7 +13,7 @@ class Main extends React.Component  {
 
   componentDidMount () {
     this.fetchUsers();
-    this.fetchArticles()
+    this.fetchArticles();
   }
 
   fetchUsers () {
@@ -37,21 +37,21 @@ class Main extends React.Component  {
         'Content-Type': 'application/json'
       }
     }).then((response) => {
-        this.updateArticle(article)
-      })
+        this.updateArticle(article);
+      });
   }
 
   updateArticle (article) {
     let newArticles = this.state.articles.map( a => {
       if (a.id === article.id) {
-        return article
+        return article;
       } else {
-        return a
+        return a;
       }
-    })
+    });
     this.setState({
       articles: newArticles
-    })
+    });
   }
 
   handleArticleDelete (id) {
@@ -62,12 +62,12 @@ class Main extends React.Component  {
         'Content-Type': 'application/json'
       }
     })
-    .then((_) => this.deleteArticle(id) )
+    .then((_) => this.deleteArticle(id) );
   }
 
   deleteArticle (id) {
-    let newArticles = this.state.articles.filter( article => article.id !== id)
-    this.setState({articles: newArticles})
+    let newArticles = this.state.articles.filter( article => article.id !== id);
+    this.setState({articles: newArticles});
   }
 
   handleArticleSubmit (title, articleBody) {
@@ -81,18 +81,18 @@ class Main extends React.Component  {
       body: body
     })
     .then( response => response.json())
-    .then( article => this.appendArticle(article))
+    .then( article => this.appendArticle(article));
   }
 
   appendArticle (article) {
-    let newArticles = [...this.state.articles]
-    newArticles.push(article)
-    this.setState({articles: newArticles})
+    let newArticles = [...this.state.articles];
+    newArticles.push(article);
+    this.setState({articles: newArticles});
   }
 
   handleArticleDuplicate (title, body) {
     // this seems silly, but is setup to easily handle alternative ways of duplicating rather than creating new on the server side
-    this.handleArticleSubmit(title, body)
+    this.handleArticleSubmit(title, body);
   }
 
   render () {

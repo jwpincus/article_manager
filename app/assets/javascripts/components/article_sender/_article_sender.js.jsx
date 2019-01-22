@@ -15,25 +15,25 @@ class ArticleSender extends React.Component {
   }
 
   handleUserClick (id) {
-    let index = this.state.selectedUsers.indexOf(id)
-    let newUsers = [...this.state.selectedUsers]
+    let index = this.state.selectedUsers.indexOf(id);
+    let newUsers = [...this.state.selectedUsers];
     if (index === -1) {
-      newUsers.push(id)
+      newUsers.push(id);
     } else {
-      newUsers.splice(index, 1)
+      newUsers.splice(index, 1);
     }
-    this.setState({selectedUsers: newUsers})
+    this.setState({selectedUsers: newUsers});
   }
 
   handleArticleClick (id) {
-    this.setState({selectedArticle: id})
+    this.setState({selectedArticle: id});
   }
 
   handleSend () {
     let body = JSON.stringify({
       user_ids: this.state.selectedUsers,
       article_id: this.state.selectedArticle
-    })
+    });
 
     fetch('/api/v1/mail', {
       method: 'POST',
