@@ -46,7 +46,7 @@ class ArticleSender extends React.Component {
       this.setState({
         ...initialState
       })
-    })
+    }).then( () => alert('Article notification was sent'))
   }
 
   render () {
